@@ -1,2 +1,2 @@
-# IT-Cloud-Academy
+# IT Cloud Academy
 Lab and home works
