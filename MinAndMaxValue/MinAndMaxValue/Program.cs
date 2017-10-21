@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+// First method takes 3 integers and returns min value
+// Second method takes 2 integers and returns max value
+using System;
 
 namespace MinAndMaxValue
 {
