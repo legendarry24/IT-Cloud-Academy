@@ -21,7 +21,7 @@ namespace MinAndMaxValue
             return a > b ? a : b;
         }
 
-        private static void Main(string[] args)
+        static void Main(string[] args)
         {
             Console.WriteLine("Enter 3 values:");
             int a = int.Parse(Console.ReadLine());
