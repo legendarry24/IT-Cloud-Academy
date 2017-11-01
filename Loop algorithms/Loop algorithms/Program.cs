@@ -99,9 +99,19 @@ namespace Loop_algorithms
             #region Task 7: Print separately a fractional, an integer part of a number
 
             Console.WriteLine("\n7. Print separately a fractional, an integer part of a number\n");
-            double number = double.Parse(Console.ReadLine());
-            Console.WriteLine($"Integer part of the number: {number - number % 1}" // another way: Math.Truncate(number)
-                            + $"\nfractional part of the number: {number % 1}");
+            //double number = double.Parse(Console.ReadLine());
+            //Console.WriteLine($"Integer part of the number: {number - number % 1}" // another way: Math.Truncate(number)
+            //                + $"\nfractional part of the number: {number % 1}");
+            double number = 4.1234;
+            Console.WriteLine($"integer part: {number - number % 1}");
+            float fract = (float) (number % 1);//(float) (number - Math.Truncate(number));  // get fractional part (0.xxx)
+            Console.WriteLine($"fractional part before fix: {fract}");
+            int multiplayer = 10;
+            while (fract % 1 != 0)
+            {
+                fract *= multiplayer;
+            }
+            Console.WriteLine($"fractional part: {fract}");
 
             #endregion
 
