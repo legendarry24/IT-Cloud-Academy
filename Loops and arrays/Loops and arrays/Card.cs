@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Loops_and_arrays
 {
-    public enum Suit { clubs, diamonds, hearts, spades }
+    public enum Suit { Clubs, Diamonds, Hearts, Spades }
     public enum Number
     {
         Two,
