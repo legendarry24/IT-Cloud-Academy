@@ -237,9 +237,9 @@ namespace Loops_and_arrays
                 Console.Write($"{arr[i]} ");
             }
 
-            // 19. 
+            // 19.  fixed
             Console.WriteLine("\n19. Input string array with fixed size. Input one more string (mask).\n"
-                            + "Print all the strings which contain mask and index off the beginning of the substring\n");
+                            + "Print all the strings which contain mask and index of the beginning of the substring\n");
             string[] strArray = new string[3];
             for (int i = 0; i < strArray.Length; i++)
             {
@@ -251,7 +251,7 @@ namespace Loops_and_arrays
             {
                 if (s.Contains(mask))
                 {
-                    Console.WriteLine($"{s}. Index of mask is {s.IndexOf(mask[0])}");
+                    Console.WriteLine($"{s}. Index of mask is {s.IndexOf(mask)}");
                 }
             }
 
@@ -274,29 +274,32 @@ namespace Loops_and_arrays
                 }
             }
 
-            // additional task
+            // additional task. fixed
             Console.WriteLine("\nInput numbers until non number is entered and fill an array. " +
                               "Initial size of the array is 1. When the array is completely filled it needs to be expanded by 1 element" +
                               " and then repeat input. After non number is entered - output the array\n");
             int[] array = new int[1];
-            List<int> tempList = new List<int>();
-            int temp;
+            
+            int tempVar, index = 0;
 
-            while (int.TryParse(Console.ReadLine(), out temp))
+            while (int.TryParse(Console.ReadLine(), out tempVar))
             {
-                tempList.Add(temp);
+                array[index] = tempVar;
+                int[] tempArr = new int[array.Length + 1];
+                for (int j = 0; j < array.Length; j++)
+                {
+                    tempArr[j] = array[j];
+                }
+                array = tempArr;
+                index++;
             }
-
-            Array.Resize(ref array, tempList.Count);
-            array = tempList.ToArray();            
-            array = new int[array.Length + 1];
             Console.WriteLine("Repeat input:");
 
-            for (int i = 0; i < array.Length; i++)
+            for (int j = 0; j < array.Length; j++)
             {
-                if (int.TryParse(Console.ReadLine(), out temp))
+                if (int.TryParse(Console.ReadLine(), out tempVar))
                 {
-                    array[i] = temp;
+                    array[j] = tempVar;
                 }
                 else
                 {
@@ -309,15 +312,37 @@ namespace Loops_and_arrays
                 Console.Write($"{element} ");
             }
 
-            // 21. 
+            // 21.  fixed
             Console.WriteLine("\n21. Create an array with unique elements from 0 to 10 in random order\n");
-            int[] uniqArr = Enumerable.Range(0, 11).OrderBy(x => rand.Next()).ToArray();
-            foreach (int i in uniqArr)
+            int[] uniqArr = new int[11];
+            int current = rand.Next(0, 11);
+            for (int i = 0; i < uniqArr.Length; i++)
             {
-                Console.Write($"{uniqArr[i]} ");
+                for (int j = 1; j < uniqArr.Length; j++)
+                {
+                    if (uniqArr[j - 1] == current)
+                    {
+                        current = rand.Next(0, 11);
+                        j = 0;
+                    }
+                }
+                uniqArr[i] = current;
+                current = rand.Next(0, 11);
             }
 
-            // or alternatively
+            foreach (int i in uniqArr)
+            {
+                Console.Write($"{i} ");
+            }
+
+            //or alternatively
+            //int[] uniqArr = Enumerable.Range(0, 11).OrderBy(x => rand.Next()).ToArray();
+            //foreach (int i in uniqArr)
+            //{
+            //    Console.Write($"{uniqArr[i]} ");
+            //}
+
+            //one more implementation
             //Console.WriteLine("\nAnother implementation: ");
             //HashSet<int> randomSet = new HashSet<int>();
             //while (randomSet.Count < 11)
@@ -328,8 +353,51 @@ namespace Loops_and_arrays
 
             // 22. 
             Console.WriteLine("\n22. Create struct that describes the playing card\n");
-            Card card = new Card(Number.Ace, Suit.hearts);
-            Console.WriteLine($"{card.Number} of {card.Suit}");
+            Card someCard = new Card(Number.Ace, Suit.Hearts);
+            Console.WriteLine($"{someCard.Number} of {someCard.Suit}");
+
+            // 23.
+            Console.WriteLine("\n23. Generate an ordered deck of cards\n");
+            Card.Deck = Card.GenerateDeck();
+
+            foreach (Card card in Card.Deck)
+            {
+                Console.WriteLine($"{card.Number} of {card.Suit}");
+            }
+
+            // 24.
+            Console.WriteLine("\n24. Shuffle the deck\n");
+            Card.ShuffleDeck();
+            foreach (Card card in Card.Deck)
+            {
+                Console.WriteLine($"{card.Number} of {card.Suit}");
+            }
+
+            // 25.
+            Console.WriteLine("\n25. Find the positions of all the aces in the deck\n");
+            for (int i = 0; i < Card.Deck.Length; i++)
+            {
+                if (Card.Deck[i].Number == Number.Ace)
+                {
+                    Console.WriteLine($"Index of {Card.Deck[i].Number} of {Card.Deck[i].Suit} = {i}");
+                }
+            }
+
+            // 26.
+            Console.WriteLine("\n26. Move all the spades to the top of the deck\n");
+            for (int j = 0, i = 0; j < Card.Deck.Length; j++)
+            {
+                if (Card.Deck[j].Suit == Suit.Spades)
+                {
+                    Card temp = Card.Deck[j];
+                    Card.Deck[j] = Card.Deck[i];
+                    Card.Deck[i++] = temp;
+                }
+            }
+            foreach (Card card in Card.Deck)
+            {
+                Console.WriteLine($"{card.Number} of {card.Suit}");
+            }
 
             Console.ReadKey();
         }
