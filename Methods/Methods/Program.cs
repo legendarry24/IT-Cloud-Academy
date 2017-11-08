@@ -19,7 +19,7 @@ namespace Methods
                 return n * Fact(n - 1);
             }            
         }
-
+    
         static int SumOfEven(int n)
         {
             int sum = 0;
