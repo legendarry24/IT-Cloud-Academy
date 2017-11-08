@@ -30,6 +30,38 @@ namespace Methods
             return sum;
         }
 
+        static void PrintFilledRect(int a, int b)
+        {
+            for (int i = 0; i < a; i++)
+            {
+                for (int j = 0; j < b; j++)
+                {
+                    Console.Write('*');
+                }
+                Console.Write('\n');
+            }
+            Console.Write('\n');
+        }
+
+        static void PrintRect(int a, int b)
+        {
+            for (int i = 0; i < a; i++)
+            {
+                for (int j = 0; j < b; j++)
+                {
+                    if (i == 0 || i == a - 1)
+                    {
+                        Console.Write('*');
+                    } else
+                    {
+                        Console.Write('*' + new string(' ', b - 2) + '*');
+                        break;
+                    }
+                }
+                Console.Write('\n');
+            }
+        }
+
         static void Main(string[] args)
         {
             // Task 1 factorial
@@ -40,36 +72,15 @@ namespace Methods
             // Task 2 sum of even
             Console.Write("Input n: ");
             n = int.Parse(Console.ReadLine());
-            Console.WriteLine($"Sum of row 2 + 4 + ... + 2n = {SumOfEven(n)}");
+            Console.WriteLine($"Sum of row 2 + 4 + ... + 2n = {SumOfEven(n)}\n");
 
-            // Task 3 Print rectangle
-            int a = 3, b = 4;
-            for (int i = 0; i < a; i++)
-            {
-                for (int j = 0; j < b; j++)
-                {
-                    Console.Write('*');
-                }
-                Console.Write('\n');
-            }
-            Console.Write('\n');
+            // Task 3 Print filled rectangle
+            int a = 5, b = 7;
+            PrintFilledRect(a, b);
 
             // Task 4 Print rectangle
-            for (int i = 0; i < a; i++)
-            {
-                for (int j = 0; j < b; j++)
-                {
-                    if ((i == 1) && (j == 1 || j == 2))
-                    {
-                        Console.Write(' ');
-                    }
-                    else
-                    {
-                        Console.Write('*');
-                    }                    
-                }
-                Console.Write('\n');
-            }
+            PrintRect(a, b);
+
 
             Console.ReadKey();
         }
