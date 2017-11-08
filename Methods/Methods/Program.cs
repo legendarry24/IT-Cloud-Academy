@@ -62,6 +62,38 @@ namespace Methods
             }
         }
 
+        static void SomeMethod(int[] array)
+        {
+            array = new int[10];
+        }
+
+        static void SomeMethod(ref int[] array)
+        {
+            array = new int[10];
+        }
+
+        static int Max(int a, int b)
+        {
+            return a > b ? a : b;
+        }
+
+        static int Test(params int[] array) // as many parameters as we want
+        {
+            return array[1];
+        }
+
+        static bool MyMethod(int divisor, params int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] % divisor != 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         static void Main(string[] args)
         {
             // Task 1 factorial
@@ -81,6 +113,25 @@ namespace Methods
             // Task 4 Print rectangle
             PrintRect(a, b);
 
+            int[] arr = { 1, 2, 3, 4 };
+
+            SomeMethod(arr);
+            foreach (int item in arr)
+            {
+                Console.WriteLine(item);
+            }
+
+            SomeMethod(ref arr);
+            foreach (int item in arr)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine($"Max of {a} and {b} is {Max(a, b)}");
+
+            Console.WriteLine(Test(1, 2, 3, 4, 5));
+
+            Console.WriteLine(MyMethod(2, 4, 6, 8, 9));
 
             Console.ReadKey();
         }
