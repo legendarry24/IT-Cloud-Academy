@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOP
 {
@@ -15,8 +11,9 @@ namespace OOP
         {
             Console.WriteLine("Student()");
         }
+
         public Student(string name)
-            : base(DateTime.Now)
+            : base(DateTime.Now, name)
         {
             Console.WriteLine("Student(string name)");
         }
