@@ -14,12 +14,14 @@ namespace OOP
         public Human(DateTime dateOfBirth)
         {
             DateOfBirth = dateOfBirth;
+            Console.WriteLine("Human(DataTime)");
         }
 
         public Human(DateTime dateOfBirth, string name)
         {
             DateOfBirth = dateOfBirth;
             Name = name;
+            Console.WriteLine(Human(DataTime, string))
         }
 
         public void Walk()

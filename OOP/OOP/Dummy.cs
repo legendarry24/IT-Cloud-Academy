@@ -9,7 +9,7 @@ namespace OOP
     class Dummy: Student
     {
         public Dummy()
-            :base()
+            :base("text")
         {
 
         }
