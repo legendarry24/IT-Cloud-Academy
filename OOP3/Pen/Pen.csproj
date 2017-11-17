@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B43C9233-B06C-4355-A1B1-43270AF8BDED}</ProjectGuid>
+    <ProjectGuid>{E23F33F7-4A4B-43D7-A7D2-A3885CE325C3}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OOP3</RootNamespace>
-    <AssemblyName>OOP3</AssemblyName>
+    <RootNamespace>Pen</RootNamespace>
+    <AssemblyName>Pen</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,12 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasePencilRepository.cs" />
-    <Compile Include="IPencilsRepository.cs" />
+    <Compile Include="BasePenRepository.cs" />
+    <Compile Include="IPenRepository.cs" />
     <Compile Include="Pen.cs" />
-    <Compile Include="Pencil.cs" />
-    <Compile Include="PencilsFileRepository.cs" />
-    <Compile Include="PencilsRepository.cs" />
+    <Compile Include="PensRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

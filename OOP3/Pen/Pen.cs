@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOP3
+namespace Pen
 {
-    class Pencil
+    class Pen
     {
         public int Id { get; set; }
 
@@ -18,7 +18,7 @@ namespace OOP3
 
         public override string ToString()
         {
-            return $"{nameof(Id)}: {Id}\n{nameof(Brand)}: {Brand}\n{nameof(Price)}: {Price}";
+            return $"{nameof(Id)}: {Id}\n{nameof(Brand)}: {Brand}\n{nameof(Price)}: {Price}\n{nameof(Size)}: {Size}";
         }
     }
 }
