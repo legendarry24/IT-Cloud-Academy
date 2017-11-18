@@ -9,7 +9,8 @@ namespace Pen
     class PensRepository : BasePenRepository, IPenRepository
     {
         private Pen[] _pens;
-        private int _lastIndex;
+
+        public int Count { get; private set; }
 
         public PensRepository(int size)
         {
@@ -32,31 +33,52 @@ namespace Pen
             set { _pens[index] = value; }
         }
 
-        public int Count => _pens.Length;
-
         public override void Add(Pen pen)
         {
-            _pens[_lastIndex++] = pen;
+            if (pen == null)
+            {
+                Console.WriteLine("Invalid input parameter");
+            }
+            else
+            {
+                _pens[Count++] = pen;
+            }
         }
 
         public void Delete(int index)
         {
-            for (int i = 0; i < Count; i++)
+            if (index >= 0 && index < Count)
             {
-                if (i < index && i > index)
+                for (int i = 0; i < Count; i++)
                 {
-                    _pens[i] = _pens[i];
-                }               
+                    if (i < index)
+                    {
+                        _pens[i] = _pens[i];
+                    }
+                    else
+                    {
+                        _pens[i] = _pens[i + 1];
+                    }
+                }
+                Count--;
             }
+            else
+            {
+                Console.WriteLine("Index out of range!");
+            }           
         }
 
         public override Pen Get(int id)
         {
+            if (id <= 0)
+            {
+                return null;
+            }
             for (int i = 0; i < Count; i++)
             {
-                if (true)
+                if (_pens[i].Id == id)
                 {
-                    return new Pen();
+                    return _pens[i];
                 }
             }
             return null;

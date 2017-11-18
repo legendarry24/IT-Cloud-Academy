@@ -9,6 +9,7 @@ namespace Pen
     abstract class BasePenRepository
     {
         public abstract Pen Get(int id);
+
         public abstract void Add(Pen pen);
     }
 }
