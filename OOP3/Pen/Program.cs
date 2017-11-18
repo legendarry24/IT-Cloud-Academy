@@ -10,6 +10,8 @@ namespace Pen
     {
         static void Main(string[] args)
         {
+            int[] x = new int[0];
+            var y = new int[1];
 
         }
     }

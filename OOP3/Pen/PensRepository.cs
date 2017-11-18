@@ -56,9 +56,10 @@ namespace Pen
             {
                 if (true)
                 {
-
+                    return new Pen();
                 }
             }
+            return null;
         }
     }
 }
