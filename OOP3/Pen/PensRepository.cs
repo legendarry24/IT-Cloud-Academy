@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pen
 {
-    class PensRepository : BasePenRepository
+    class PensRepository : BasePenRepository, IPenRepository
     {
         private Pen[] _pens;
         private int _lastIndex;
@@ -16,7 +16,7 @@ namespace Pen
             _pens = new Pen[size];
         }
 
-        public override Pen this[int index]
+        public Pen this[int index]
         {
             get
             {
@@ -32,20 +32,14 @@ namespace Pen
             set { _pens[index] = value; }
         }
 
-        public override int Count
-        {
-            get
-            {
-                return _pens.Length;
-            }
-        }
+        public int Count => _pens.Length;
 
         public override void Add(Pen pen)
         {
             _pens[_lastIndex++] = pen;
         }
 
-        public override void Delete(int index)
+        public void Delete(int index)
         {
             for (int i = 0; i < Count; i++)
             {
