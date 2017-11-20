@@ -62,7 +62,6 @@ namespace Pen
             else
             {
                 Console.WriteLine("Index out of range!");
-                return;
             }           
         }
 
