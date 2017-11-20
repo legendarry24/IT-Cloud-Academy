@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BasePenRepository.cs" />
     <Compile Include="IPenRepository.cs" />
+    <Compile Include="IPens.cs" />
     <Compile Include="Pen.cs" />
     <Compile Include="PensRepository.cs" />
     <Compile Include="Program.cs" />

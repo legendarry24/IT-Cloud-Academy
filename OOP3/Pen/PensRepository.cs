@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pen
 {
-    class PensRepository : BasePenRepository, IPenRepository
+    class PensRepository : BasePenRepository, IPenRepository, IPens
     {
         private Pen[] _pens;
 
@@ -41,8 +41,8 @@ namespace Pen
             }
             _pens[Count++] = pen;
         }
-
-        public void Delete(int index)
+        // Explicit interface implementation
+        void IPenRepository.Delete(int index)
         {
             if (index >= 0 && index < Count)
             {
@@ -63,6 +63,11 @@ namespace Pen
             {
                 Console.WriteLine("Index out of range!");
             }           
+        }
+        // Explicit interface implementation
+        void IPens.Delete(int index)
+        {
+
         }
 
         public override Pen Get(int id)
