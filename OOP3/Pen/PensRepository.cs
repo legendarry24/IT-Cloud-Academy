@@ -30,19 +30,16 @@ namespace Pen
                     return null;
                 }
             }
-            set { _pens[index] = value; }
         }
 
         public override void Add(Pen pen)
         {
-            if (pen == null)
+            if (pen == null || Count == _pens.Length)
             {
-                Console.WriteLine("Invalid input parameter");
+                Console.WriteLine("Invalid input parameter or repository is full");
+                return;
             }
-            else
-            {
-                _pens[Count++] = pen;
-            }
+            _pens[Count++] = pen;
         }
 
         public void Delete(int index)
@@ -65,6 +62,7 @@ namespace Pen
             else
             {
                 Console.WriteLine("Index out of range!");
+                return;
             }           
         }
 

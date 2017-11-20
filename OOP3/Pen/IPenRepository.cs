@@ -10,6 +10,6 @@ namespace Pen
     {
         void Delete(int index);
         int Count { get; }
-        Pen this[int index] { get; set; }
+        Pen this[int index] { get; }
     }
 }
