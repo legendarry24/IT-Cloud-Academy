@@ -8,7 +8,7 @@ namespace OOP4
 {
     class List
     {
-        private ListNode _head; // first element    
+        private ListNode _head;    // first element    
         private ListNode _last;    // last element
 
         public List(int value)
@@ -18,27 +18,6 @@ namespace OOP4
                 Value = value
             };
             _last = _head;
-            ListNode.Index = 0;
-        }
-
-        public ListNode this[int index]
-        {
-            get
-            {
-                if (index < 0 && index >= ListNode.Index)
-                {
-                    return null;
-                }
-                while (_head.Next != _last.Next)
-                {
-                    if (ListNode.Index == index)
-                    {
-                        return _head;
-                    }
-                    _head = _head.Next;
-                }
-                return null;
-            }
         }
 
         public void Add(int value)
@@ -50,7 +29,6 @@ namespace OOP4
 
             _last.Next = node;
             _last = node;
-            ListNode.Index++;
         }
 
         public void Print()

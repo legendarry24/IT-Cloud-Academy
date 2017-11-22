@@ -11,7 +11,5 @@ namespace OOP4
         public int Value { get; set; }
 
         public ListNode Next { get; set; }
-
-        public static int Index { get; set; }
     }
 }
