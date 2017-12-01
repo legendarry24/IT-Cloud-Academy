@@ -11,22 +11,27 @@ namespace MyList_and_MyStack
     {
         private int[] array;
         private int index;
+
         public MyList()
         {
             array = new int[1];
         }
+
         public MyList(int n)
         {
             array = new int[n];
         }
+
         public int FindByIndex(int ix)
         {
             return array[ix];
         }
+
         public int GetCount()
         {
             return index;
         }
+
         public void Add(int item)
         {
             array[index] = item;
@@ -38,6 +43,7 @@ namespace MyList_and_MyStack
             array = temp;
             index++;
         }
+
         public void Remove(int item)
         {
             int[] temp = new int[array.Length - 1];
@@ -56,6 +62,7 @@ namespace MyList_and_MyStack
             array = temp;
             index--;
         }
+
         public void RemoveAt(int ix)
         {
             int[] temp = new int[array.Length - 1];
@@ -73,6 +80,7 @@ namespace MyList_and_MyStack
             array = temp;
             index--;
         }
+        
         public void Clear()
         {
             int[] temp = new int[1];
