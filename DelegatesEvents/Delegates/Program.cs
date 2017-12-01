@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Delegates
 {
@@ -27,30 +24,31 @@ namespace Delegates
         {
 
         }
+       
 
         static void Main(string[] args)
         {
             #region Custom delegate
             //var sumDelegate = new SumDelegate(SumObjects);
-            //SumDelegate sumDelegate = SumObjects;
-            //sumDelegate += Add;
-            //sumDelegate += SumObjects;
-            //sumDelegate += Add;
-            //sumDelegate += Test.AddNumbers;
+            SumDelegate sumDelegate = SumObjects;
+            sumDelegate += Add;
+            sumDelegate += SumObjects;
+            sumDelegate += Add;
+            sumDelegate += Test.AddNumbers;
 
-            //SumDelegate delegate2 = Test.AddNumbers;
-            //delegate2 += SumObjects;
+            SumDelegate delegate2 = Test.AddNumbers;
+            delegate2 += SumObjects;
 
-            //sumDelegate += delegate2;
+            sumDelegate += delegate2;
 
-            //foreach (var sum in sumDelegate.GetInvocationList())
-            //{
-            //    Console.WriteLine(sum.DynamicInvoke(9, 3));
-            //}
+            foreach (var sum in sumDelegate.GetInvocationList())
+            {
+                Console.WriteLine(sum.DynamicInvoke(9, 3));
+            }
 
-            //Console.WriteLine(sumDelegate(4, 5));
+            Console.WriteLine(sumDelegate(4, 5));
             //or
-            //Console.WriteLine(sumDelegate.Invoke(4, 5)); 
+            Console.WriteLine(sumDelegate.Invoke(4, 5));
             #endregion
 
             #region Func and Action
@@ -76,8 +74,8 @@ namespace Delegates
             foreach (var sum in func.GetInvocationList())
             {
                 Console.WriteLine(sum.DynamicInvoke(9, 3));
-            }                       
-             
+            }
+
             #endregion
 
             Console.ReadKey();
