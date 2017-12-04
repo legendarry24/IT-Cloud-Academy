@@ -47,15 +47,70 @@ namespace Predicate
 
         public static int First(this List<int> list, Predicate<int> predicate)
         {
-            
+            int count = 0;
             foreach (var item in list)
             {
                 if (predicate(item))
                 {
+                    return count;
+                }
+                else
+                {
                     count++;
                 }
             }
-            return count;
+            throw new FormatException();
+        }
+
+        public static int FirstOrDefault(this List<int> list, Predicate<int> predicate)
+        {
+            int count = 0;
+            foreach (var item in list)
+            {
+                if (predicate(item))
+                {
+                    return count;
+                }
+                else
+                {
+                    count++;
+                }
+            }
+            return -1;
+        }
+
+        public static int Last(this List<int> list, Predicate<int> predicate)
+        {
+            int count = list.Count - 1;
+            for (int i = count; i >= 0; i--)
+            {
+                if (predicate(list[i]))
+                {
+                    return count;
+                }
+                else
+                {
+                    count--;
+                }
+            }
+            throw new FormatException();
+        }
+
+        public static int LastOrDefault(this List<int> list, Predicate<int> predicate)
+        {
+            int count = list.Count - 1;
+            for (int i = count; i >= 0; i--)
+            {
+                if (predicate(list[i]))
+                {
+                    return count;
+                }
+                else
+                {
+                    count--;
+                }
+            }
+            return -1;
         }
     }
 }
