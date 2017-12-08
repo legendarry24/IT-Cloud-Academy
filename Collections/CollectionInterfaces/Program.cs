@@ -11,25 +11,44 @@ namespace CollectionInterfaces
     {
         static void Main(string[] args)
         {
-            var p = new Point(1);
-            var p2 = new Point(2);
-            var p3 = new Point(3);
+            //var p = new Point(1);
+            //var p2 = new Point(2);
+            //var p3 = new Point(3);
 
-            SortedList list = new SortedList();
-            list.Add(p2, "2");
-            list.Add(p, "1");
-            list.Add(p3, "3");
-            //Console.WriteLine(list.Count); 
+            //SortedList list = new SortedList();
+            //list.Add(p2, "2");
+            //list.Add(p, "1");
+            //list.Add(p3, "3");
+            ////Console.WriteLine(list.Count); 
 
-            List<Point> lst = new List<Point>();
-            MyComparer<Point> comparerObj = new MyComparer<Point>();
-            lst.Sort(comparerObj);
+            //List<Point> lst = new List<Point>();
+            //MyComparer<Point> comparerObj = new MyComparer<Point>();
+            //lst.Sort(comparerObj);
 
-            MyList myList = new MyList(new string[] { "1", "3", "4", "5", "-1", "1", "4" });
-            foreach (var item in myList)
+            //MyList myList = new MyList(new string[] { "1", "3", "4", "5", "-1", "1", "4" });
+            //foreach (var item in myList)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //AnotherList aList = new AnotherList(new string[] { "1", "3", "4", "5", "-1", "1", "4" });
+            //foreach (var item in aList)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //// second and other loops won't work
+            //foreach (var item in aList)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+
+            SecondList sList = new SecondList(new string[] { "1", "3", "4", "5", "-1", "1", "4" });
+            foreach (var item in sList)
             {
-                Console.WriteLine(item);
+
             }
+
             Console.ReadKey();
         }
     }

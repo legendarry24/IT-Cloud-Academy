@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "Collections\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionInterfaces", "CollectionInterfaces\CollectionInterfaces.csproj", "{032EC80E-97C6-49CC-A620-47111BDD8E4A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericList", "GenericList\GenericList.csproj", "{9AE580C2-5472-4C5F-8E9B-14A89F306806}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{032EC80E-97C6-49CC-A620-47111BDD8E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{032EC80E-97C6-49CC-A620-47111BDD8E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{032EC80E-97C6-49CC-A620-47111BDD8E4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AE580C2-5472-4C5F-8E9B-14A89F306806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AE580C2-5472-4C5F-8E9B-14A89F306806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AE580C2-5472-4C5F-8E9B-14A89F306806}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AE580C2-5472-4C5F-8E9B-14A89F306806}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

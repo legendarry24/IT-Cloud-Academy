@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CollectionInterfaces
 {
-    public class MyList : IEnumerable, IEnumerator
+    public class MyList : IEnumerable
     {
         private string[] _array;
 
@@ -18,9 +18,10 @@ namespace CollectionInterfaces
 
         public IEnumerator GetEnumerator()
         {
-            return new MyEnumerator(this);
+            return new MyEnumerator(_array);
         }
 
+        //easy way to implement
         //public IEnumerator GetEnumerator()
         //{
         //    return _array.GetEnumerator();
@@ -28,24 +29,26 @@ namespace CollectionInterfaces
 
         private struct MyEnumerator : IEnumerator
         {
-            private MyList _list;
+            private string[] _array;
             private int _index;
-            public MyEnumerator(MyList list)
+
+            public MyEnumerator(string[] array)
             {
-                _list = list;
-                _index = 0;
+                _array = array;
+                _index = -1;
             }
 
-            public object Current => _list._array[_index];
-
+            public object Current => _array[_index];
 
             public bool MoveNext()
             {
-                _index++;
-                return _index < _list._array.Length;
+                return ++_index < _array.Length;
             }
 
-            public void Reset() { _index = 0; }
+            public void Reset()
+            {
+                _index = -1;
+            }
         }
     }
 }
