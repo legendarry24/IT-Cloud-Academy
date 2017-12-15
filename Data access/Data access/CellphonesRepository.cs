@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data_access
 {
@@ -17,7 +15,7 @@ namespace Data_access
             //Represents an object as a string 
             string phoneString = JsonConvert.SerializeObject(phone);
             //File.AppendAllLines(RepositoryFilePath, new [] { phoneString} );
-            
+
             //new implementation
             // false by default, true => append, false => rewrite and save last line
             using (StreamWriter streamWriter = new StreamWriter(RepositoryFilePath, true))
@@ -30,7 +28,7 @@ namespace Data_access
             //string phoneString = File.ReadAllText(RepositoryFilePath);
             //var cellphone = JsonConvert.DeserializeObject<Cellphone>(phoneString);
             //return new[] { cellphone };
-             
+
             //new implementation
             string[] phones = File.ReadAllLines(RepositoryFilePath);
             return phones.Select(JsonConvert.DeserializeObject<Cellphone>);
