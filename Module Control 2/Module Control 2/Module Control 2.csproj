@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E23F33F7-4A4B-43D7-A7D2-A3885CE325C3}</ProjectGuid>
+    <ProjectGuid>{2A5D61AC-633B-45D5-B8D2-AE82FF1473DE}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Pen</RootNamespace>
-    <AssemblyName>Pen</AssemblyName>
+    <RootNamespace>Module_Control_2</RootNamespace>
+    <AssemblyName>Module Control 2</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,13 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasePenRepository.cs" />
-    <Compile Include="IPenRepository.cs" />
-    <Compile Include="IPens.cs" />
-    <Compile Include="Pen.cs" />
-    <Compile Include="PensRepository.cs" />
+    <Compile Include="BaseFile.cs" />
+    <Compile Include="IFile.cs" />
+    <Compile Include="Image.cs" />
+    <Compile Include="Movie.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

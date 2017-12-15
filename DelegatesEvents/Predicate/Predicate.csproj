@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E23F33F7-4A4B-43D7-A7D2-A3885CE325C3}</ProjectGuid>
+    <ProjectGuid>{8D3B2FF2-D1DC-45D0-BE7E-6A1E4EA27A24}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Pen</RootNamespace>
-    <AssemblyName>Pen</AssemblyName>
+    <RootNamespace>Predicate</RootNamespace>
+    <AssemblyName>Predicate</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,11 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasePenRepository.cs" />
-    <Compile Include="IPenRepository.cs" />
-    <Compile Include="IPens.cs" />
-    <Compile Include="Pen.cs" />
-    <Compile Include="PensRepository.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

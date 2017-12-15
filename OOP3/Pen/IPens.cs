@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Pen
 {
-    interface IPenRepository
+    interface IPens
     {
         void Delete(int index);
-        int Count { get; }
-        Pen this[int index] { get; }
     }
 }

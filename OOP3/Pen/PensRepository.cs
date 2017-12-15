@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pen
 {
-    class PensRepository : BasePenRepository, IPenRepository
+    class PensRepository : BasePenRepository, IPenRepository, IPens
     {
         private Pen[] _pens;
 
@@ -30,22 +30,19 @@ namespace Pen
                     return null;
                 }
             }
-            set { _pens[index] = value; }
         }
 
         public override void Add(Pen pen)
         {
-            if (pen == null)
+            if (pen == null || Count == _pens.Length)
             {
-                Console.WriteLine("Invalid input parameter");
+                Console.WriteLine("Invalid input parameter or repository is full");
+                return;
             }
-            else
-            {
-                _pens[Count++] = pen;
-            }
+            _pens[Count++] = pen;
         }
-
-        public void Delete(int index)
+        // Explicit interface implementation
+        void IPenRepository.Delete(int index)
         {
             if (index >= 0 && index < Count)
             {
@@ -66,6 +63,11 @@ namespace Pen
             {
                 Console.WriteLine("Index out of range!");
             }           
+        }
+        // Explicit interface implementation
+        void IPens.Delete(int index)
+        {
+
         }
 
         public override Pen Get(int id)

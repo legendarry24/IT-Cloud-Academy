@@ -30,8 +30,8 @@ namespace Pen
             pens.Add(pen);
             pens.Add(pen1);
             pens.Add(pen2);
-            pens.Delete(1);
-            pens.Delete(3); // Index out of range
+            ((IPenRepository)pens).Delete(1);
+            ((IPens)pens).Delete(3); // Index out of range
             pens.Add(pen3); // Invalid input parameter
             //Console.WriteLine(pens[3].ToString()); // Null reference exception
             Pen pen4 = pens.Get(1);
