@@ -3,44 +3,54 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data_access
 {
     class CellphonesRepository : ICellphonesRepository
     {
-        private const string RepositoryFilePath = @"S:\C-17-03\msr^_^\IT Cloud Academy\IT-Cloud-Academy\Data access\CellphonesData\cellphones.txt";
+        private const string RepositoryFilePath = @"D:\Downloads\C#\IT Cloud Academy\IT-Cloud-Academy-master\Data access\CellphonesData\cellphones.txt";
 
         public void Add(Cellphone phone)
         {
-            //Представляет обьект в виде строки
+            //Represents an object as a string 
             string phoneString = JsonConvert.SerializeObject(phone);
-            //File.AppendAllLines(RepositoryFilePath, new[] { phoneString });
+            //File.AppendAllLines(RepositoryFilePath, new [] { phoneString} );
+
             //new implementation
+            // false by default, true => append, false => rewrite and save last line
             using (StreamWriter streamWriter = new StreamWriter(RepositoryFilePath, true))
                 streamWriter.WriteLine(phoneString);
         }
 
         public IEnumerable<Cellphone> GetAll()
         {
-            string[] phones = File.ReadAllLines(RepositoryFilePath);
-            //var cellphones = JsonConvert.DeserializeObject<Cellphone>(phoneString);
-            //return new[] { cellphones };
+            //for 1 object
+            //string phoneString = File.ReadAllText(RepositoryFilePath);
+            //var cellphone = JsonConvert.DeserializeObject<Cellphone>(phoneString);
+            //return new[] { cellphone };
+
             //new implementation
-            return phones.Select(x => JsonConvert.DeserializeObject<Cellphone>(x));
+            string[] phones = File.ReadAllLines(RepositoryFilePath);
+            return phones.Select(JsonConvert.DeserializeObject<Cellphone>);
+            //the same
+            //return phones.Select(x => JsonConvert.DeserializeObject<Cellphone>(x));
         }
 
         public void Remove(int id)
         {
             var phones = GetAll().Where(x => x.Id != id);
+            //clear file
             File.Open(RepositoryFilePath, FileMode.Truncate)
                 .Close();
-
+            //and rewrite
             foreach (var phone in phones)
-            {
                 Add(phone);
-            }
+        }
+
+        public void Print(IEnumerable<Cellphone> phones)
+        {
+            foreach (var phone in phones)
+                Console.WriteLine(phone);
         }
     }
 }

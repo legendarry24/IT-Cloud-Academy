@@ -1,0 +1,7 @@
+{"Id":1,"Manufacturer":"Samsung","Model":"Galaxy S8","Price":1356.99}
+{"Id":1,"Manufacturer":"Samsung","Model":"Galaxy S8","Price":1356.99}
+{"Id":1,"Manufacturer":"Samsung","Model":"Galaxy S8","Price":1356.99}
+{"Id":0,"Manufacturer":"Apple","Model":"X","Price":1456.98}
+{"Id":1,"Manufacturer":"Samsung","Model":"Galaxy S8","Price":1356.99}
+{"Id":0,"Manufacturer":"Apple","Model":"X","Price":1456.98}
+{"Id":1,"Manufacturer":"Samsung","Model":"Galaxy S8","Price":1356.99}

@@ -47,27 +47,29 @@ namespace Data_access
 
             var cellphone = new Cellphone
             {
+                Id = 0,
                 Manufacturer = "Apple",
                 Model = "X",
                 Price = 1456.98m
             };
+            repository.Add(cellphone);
 
             var cellphone1 = new Cellphone
             {
+                Id = 1,
                 Manufacturer = "Samsung",
                 Model = "Galaxy S8",
                 Price = 1356.99m
             };
-
-            repository.Add(cellphone);
             repository.Add(cellphone1);
-            repository.Remove(0);
-            var phones = repository.GetAll();
 
-            foreach (var phone in phones)
-            {
-                Console.WriteLine(phone);
-            }
+            var phones = repository.GetAll();
+            repository.Print(phones);
+
+            repository.Remove(0);
+            phones = repository.GetAll();
+            Console.WriteLine("\nAfter remove id = 0:");
+            repository.Print(phones);
 
             IFormatter binaryFormatter = new BinaryFormatter();
             //watch lecture
