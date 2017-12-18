@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data_access
 {
+    [Serializable]
     class Cellphone
     {
         public int Id { get; set; }

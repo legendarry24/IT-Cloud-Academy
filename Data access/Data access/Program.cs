@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,6 +68,9 @@ namespace Data_access
             {
                 Console.WriteLine(phone);
             }
+
+            IFormatter binaryFormatter = new BinaryFormatter();
+            //watch lecture
 
             Console.ReadKey();
         }
