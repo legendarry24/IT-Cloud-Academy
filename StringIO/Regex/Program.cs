@@ -22,7 +22,7 @@ namespace RegExp
         public static bool Email(string s)
         {
             Regex regex = new Regex(@"^\w+([-.]\w+)*@\w+\.\w+([-.]\w+)*$");
-	        return regex.IsMatch(s)? true: false;
+	    return regex.IsMatch(s)? true: false;
         }
 
         static void Main(string[] args)
