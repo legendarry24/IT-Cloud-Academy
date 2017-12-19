@@ -18,6 +18,12 @@ namespace RegExp
                 Console.WriteLine($"{phoneNumber} is invalid ukrainian phone number");
             }
         }
+        
+        public static bool Email(string s)
+        {
+            Regex regex = new Regex(@"^\w+([-.]\w+)*@\w+\.\w+([-.]\w+)*$");
+	        return regex.IsMatch(s)? true: false;
+        }
 
         static void Main(string[] args)
         {
@@ -64,8 +70,12 @@ namespace RegExp
             //{
             //    Console.Write("Input phone number: ");
             //    ValidPhoneNumber(Console.ReadLine());
-            //}            
-
+            //}
+            
+            Console.WriteLine(Email("www.aa_bb.a@gmail.com.ua"));
+            Console.WriteLine(Email("www_a-a.a@gmail.com"));
+            Console.WriteLine(Email("www_a-a.agmail.com.ua"));
+            Console.WriteLine(Email("a-a.a@gmail"));
 
             Console.ReadKey();
         }
