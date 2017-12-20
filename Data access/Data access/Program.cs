@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using Newtonsoft.Json;
 using System.IO;
+using 
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +11,13 @@ using System.Threading.Tasks;
 
 namespace Data_access
 {
+    class Test
+    {
+        public int IntValue { get; set; }
+        public string StringValue { get; set; }
+        public DateTime Date { get; set; }
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -43,6 +52,7 @@ namespace Data_access
             //FileAttributes attributes = File.GetAttributes(filePath);
             //Console.WriteLine(attributes);
 
+            #region CellphonesRepository
             var repository = new CellphonesRepository();
 
             var cellphone = new Cellphone
@@ -64,16 +74,47 @@ namespace Data_access
             repository.Add(cellphone1);
 
             var phones = repository.GetAll();
-            repository.Print(phones);
+           // repository.Print(phones);
 
-            repository.Remove(0);
+            //repository.Remove(0);
             phones = repository.GetAll();
             Console.WriteLine("\nAfter remove id = 0:");
-            repository.Print(phones);
+            //repository.Print(phones); 
+            #endregion
 
             IFormatter binaryFormatter = new BinaryFormatter();
-            //watch lecture
 
+            using (FileStream stream = new FileStream("Test.data", FileMode.OpenOrCreate))
+            {
+                binaryFormatter.Serialize(stream, cellphone);
+            }
+
+            using (FileStream stream = new FileStream("Test.data", FileMode.OpenOrCreate))
+            {
+                var result = (Cellphone)binaryFormatter.Deserialize(stream);
+            }
+
+            JsonSerializer serializer = new JsonSerializer();
+
+            //using (StringWriter writer = new StringWriter())
+            //{
+            //    serializer.Serialize(writer, cellphone);
+            //    var result = writer.ToString();
+            //}
+            
+            
+            var format = System.Globalization.CultureInfo.CreateSpecificCulture("fr-CA");
+            DateTime dt = DateTime.Now;
+            Console.WriteLine(dt.ToString());
+
+            decimal val = 24.32m;
+            Console.OutputEncoding = Encoding.Unicode;
+            //Console.WriteLine(val.ToString("C1", );
+
+            Console.WriteLine();
+
+
+            //watch lecture
             Console.ReadKey();
         }
     }

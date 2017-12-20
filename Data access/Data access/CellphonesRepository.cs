@@ -8,7 +8,7 @@ namespace Data_access
 {
     class CellphonesRepository : ICellphonesRepository
     {
-        private const string RepositoryFilePath = @"D:\Downloads\C#\IT Cloud Academy\IT-Cloud-Academy-master\Data access\CellphonesData\cellphones.txt";
+        private const string RepositoryFilePath = @"S:\C-17-03\msr^_^\IT Cloud Academy\IT-Cloud-Academy\Data access\CellphonesData\cellphones.txt";
 
         public void Add(Cellphone phone)
         {
@@ -36,21 +36,21 @@ namespace Data_access
             //return phones.Select(x => JsonConvert.DeserializeObject<Cellphone>(x));
         }
 
-        public void Remove(int id)
-        {
-            var phones = GetAll().Where(x => x.Id != id);
-            //clear file
-            File.Open(RepositoryFilePath, FileMode.Truncate)
-                .Close();
-            //and rewrite
-            foreach (var phone in phones)
-                Add(phone);
-        }
+        //public void Remove(int id)
+        //{
+        //    var phones = GetAll().Where(x => x.Id != id);
+        //    //clear file
+        //    File.Open(RepositoryFilePath, FileMode.Truncate)
+        //        .Close();
+        //    //and rewrite
+        //    foreach (var phone in phones)
+        //        Add(phone);
+        //}
 
-        public void Print(IEnumerable<Cellphone> phones)
-        {
-            foreach (var phone in phones)
-                Console.WriteLine(phone);
-        }
+        //public void Print(IEnumerable<Cellphone> phones)
+        //{
+        //    foreach (var phone in phones)
+        //        Console.WriteLine(phone);
+        //}
     }
 }
