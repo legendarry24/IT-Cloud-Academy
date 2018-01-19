@@ -1,0 +1,13 @@
+Tasks:
+1. Output all elements excepting ArtObjects
+2. Output all actors names
+3. Output number of actors born in august
+4. Output two oldest actors names
+5. Output number of books per authors
+6. Output number of books per authors and films per director
+7. Output how many different letters used in all actors names
+8. Output names of all books ordered by names of their authors and number of pages
+9. Output actor name and all films with this actor
+10. Output sum of total number of pages in all books and all int values inside all sequences in data
+11. Get the dictionary with the key - book author, value - list of author's books
+12. Output all films of "Matt Damon" excluding films with actors whose name are presented in data as strings
