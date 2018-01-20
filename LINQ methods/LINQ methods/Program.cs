@@ -8,7 +8,7 @@ namespace LINQ_methods
 {
     class Program
     {
-        class Person
+        public class Person
         {
             public string FirstName { get; set; }
             public string LastName { get; set; }
@@ -29,22 +29,23 @@ namespace LINQ_methods
 
         public static void JoinEx()
         {
-            Person magnus = new Person { FirstName = "Hedlund, Magnus" };
-            Person terry = new Person { FirstName = "Adams, Terry" };
-            Person charlotte = new Person { FirstName = "Weiss, Charlotte" };
+            Person magnus = new Person { FirstName = "Magnus" };
+            Person terry = new Person { FirstName = "Terry" };
+            Person charlotte = new Person { FirstName = "Charlotte" };
+            Person jack = new Person { FirstName = "Jack" };
 
-            Pet barley = new Pet { Name = "Barley", OwnerName = "Adams, Terry" };
-            Pet boots = new Pet { Name = "Boots", OwnerName = "Adams, Terry" };
-            Pet whiskers = new Pet { Name = "Whiskers", OwnerName = "Weiss, Charlotte" };
-            Pet daisy = new Pet { Name = "Daisy", OwnerName = "Hedlund, Magnus" };
+            Pet barley = new Pet { Name = "Barley", OwnerName = "Terry" };
+            Pet boots = new Pet { Name = "Boots", OwnerName = "Terry" };
+            Pet whiskers = new Pet { Name = "Whiskers", OwnerName = "Charlotte" };
+            Pet daisy = new Pet { Name = "Daisy", OwnerName = "Magnus" };
 
-            List<Person> people = new List<Person> { magnus, terry, charlotte };
+            List<Person> people = new List<Person> { magnus, terry, charlotte, jack };
             List<Pet> pets = new List<Pet> { barley, boots, whiskers, daisy };
 
             var petOwners = people.Join(
                 pets,
-                person => person.FirstName,
-                pet => pet.OwnerName,
+                person => person.FirstName, // outer key (primary key)
+                pet => pet.OwnerName,       // inner key (foreign key)
                 (person, pet) => new PetOwner
                 {
                     OwnerName = person.FirstName,
@@ -52,56 +53,78 @@ namespace LINQ_methods
                 })
                 .ToList();
 
-            /*
-             This code produces the following output:
-
-             Hedlund, Magnus - Daisy
-             Adams, Terry - Barley
-             Adams, Terry - Boots
-             Weiss, Charlotte - Whiskers
-            */
+            //another implementation
+            //var petOwners =
+            //    from person in people
+            //    join pet in pets on person.FirstName equals pet.OwnerName
+            //    select new PetOwner {OwnerName = person.FirstName, PetName = pet.Name};
 
             foreach (var obj in petOwners)
             {
-                Console.WriteLine(
-                    "{0} - {1}",
-                    obj.OwnerName,
-                    obj.PetName);
+                Console.WriteLine($"{obj.OwnerName} - {obj.PetName}");
             }
+        }      
 
-        }
-        //ToDo
-        public static IEnumerable<Person> GetPersons()
-        {
-
-        }
-            
         public static void OrderBy()
         {
-            Person magnus = new Person { FirstName = "Hedlund", LastName = "Magnus", Age = 1506 };
-            Person terry = new Person { FirstName = "Adams", LastName = "Terry", Age = 12018 };
-            Person charlotte = new Person { FirstName = "Weiss", LastName = "Charlotte", Age = 20 };
+            Person magnus = new Person { FirstName = "Magnus", LastName = "Hedlund", Age = 1506 };
+            Person adam = new Person { FirstName = "Adam", LastName = "Terens", Age = 12018 };
+            Person charlotte = new Person { FirstName = "Charlotte", LastName = "Weiss", Age = 20 };
             Person merlin = new Person { FirstName = "Merlin", LastName = "Abart", Age = 25 };
             Person harry = new Person { FirstName = "Harry", LastName = "Potter", Age = 29 };
-
+            Person lily = new Person { FirstName = "Lily", LastName = "Potter", Age = 32 };
+             
             List<Person> persons = new List<Person>
             {
                 magnus,
-                terry,
+                adam,
                 charlotte,
                 merlin,
-                harry
+                harry,
+                lily
             };
-            //ToDo
+
             var sortedPersons = persons
-                .Where(person => person.Age >= 20 && person.Age < 30)
-                .
+                .Where(person => person.Age >= 20 && person.Age < 35)
+                .OrderBy(person => person.LastName)
+                .ThenByDescending(person => person.FirstName)
+                .Select(person => person);
+
+            Console.WriteLine("Sorted persons:");
+            foreach (var person in sortedPersons)
+            {
+                Console.WriteLine($"{person.FirstName} {person.LastName}");
+            }
+        }
+
+        public static IEnumerable<Person> GetPersons()
+        {
+            Person magnus = new Person { FirstName = "Magnus", LastName = "Hedlund", Age = 1506 };
+            Person adam = new Person { FirstName = "Adam", LastName = "Terens", Age = 12018 };
+            Person charlotte = new Person { FirstName = "Charlotte", LastName = "Weiss", Age = 20 };
+            Person merlin = new Person { FirstName = "Merlin", LastName = "Abart", Age = 25 };
+            Person harry = new Person { FirstName = "Harry", LastName = "Potter", Age = 29 };
+            Person lily = new Person { FirstName = "Lily", LastName = "Potter", Age = 32 };
+
+            return new List<Person>
+            {
+                magnus,
+                adam,
+                charlotte,
+                merlin,
+                harry,
+                lily
+            };
         }
 
         static void Main(string[] args)
         {
+            LinqSelectMany.SelectManyEx();
             JoinEx();
             OrderBy();
+
+            var averageAge = GetPersons().Average(x => x.Age);
+            Console.WriteLine($"Average age: {averageAge}");
 
             string name = "Petro";
             Console.WriteLine(name.IsLengthEven());

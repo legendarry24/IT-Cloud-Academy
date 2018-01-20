@@ -8,9 +8,9 @@ namespace LINQ_methods
 {
     static class StringExtensions
     {
-        public static bool IsLengthEven(this string str)
+        public static bool IsLengthEven(this string input)
         {
-            return str.Length % 2 == 0;
+            return input.Length % 2 == 0;
         }
     }
 }
