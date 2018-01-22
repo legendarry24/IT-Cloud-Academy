@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actor.cs" />
+    <Compile Include="ActorsComparer.cs" />
     <Compile Include="ArtObject.cs" />
     <Compile Include="ArtObjectComparer.cs" />
     <Compile Include="Book.cs" />
