@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using NUnit.Framework;
 
@@ -19,7 +20,7 @@ namespace Cellphones.Test
         //public void CleanUp()
         //{
         //    if (File.Exists(CellphonesRepository.RepositoryFilePath))
-        //        File.(CellphonesRepository.RepositoryFilePath);
+        //        File.Delete(CellphonesRepository.RepositoryFilePath);
         //}
 
         //MethodName_StateUnderTest_ExpectedBehavior
