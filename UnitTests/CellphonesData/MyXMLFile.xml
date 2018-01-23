@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Cellphone xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>1</Id>
-  <Manufacturer>Apple</Manufacturer>
-  <Model>X</Model>
-  <Price>1400</Price>
+  <Id>2</Id>
+  <Manufacturer>Meizu</Manufacturer>
+  <Model>M5</Model>
+  <Price>1000</Price>
 </Cellphone>

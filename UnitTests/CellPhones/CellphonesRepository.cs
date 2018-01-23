@@ -8,7 +8,7 @@ namespace Cellphones
 {
     public class CellphonesRepository : ICellphonesRepository
     {
-        public const string RepositoryFilePath = @"S:\C-17-03\msr^_^\IT Cloud Academy\IT-Cloud-Academy\IOTest\CellphonesData\cellphones.txt";
+        public const string RepositoryFilePath = @"D:\Downloads\C#\IT Cloud Academy\IT-Cloud-Academy-master\UnitTests\CellphonesData\Cellphones.txt";
 
         /// <summary>
         /// Adds phones to the repository
@@ -19,7 +19,7 @@ namespace Cellphones
             if (phone == null)
                 throw new ArgumentNullException(nameof(phone));
 
-            var phoneString = JsonConvert.SerializeObject(phone);
+            string phoneString = JsonConvert.SerializeObject(phone);
 
             using (var streamWriter = new StreamWriter(RepositoryFilePath, true))
                 streamWriter.WriteLine(phoneString);
@@ -28,18 +28,24 @@ namespace Cellphones
         public IEnumerable<Cellphone> GetAll()
         {
             var phones = File.ReadAllLines(RepositoryFilePath);
-            return phones.Select(x => JsonConvert.DeserializeObject<Cellphone>(x));
+            //return phones.Select(x => JsonConvert.DeserializeObject<Cellphone>(x));
+            //the same
+            return phones.Select(JsonConvert.DeserializeObject<Cellphone>);
         }
 
+        /// <summary>
+        /// Removes phones from the repository
+        /// </summary>
+        /// <param name="id">Index of cellphone</param>
         public void Remove(int id)
         {
             var phones = GetAll();
 
-            if (!phones.Any(x => x.Id == id))
+            if (phones.All(x => x.Id != id))
                 throw new ArgumentException($"Can not remove cellphone with id: {id}. Object is not exists in the repository");
 
             var phonesUpdated = GetAll().Where(x => x.Id != id);
-            File.Open(RepositoryFilePath, FileMode.OpenOrCreate)
+            File.Open(RepositoryFilePath, FileMode.Create)
                 .Close();
 
             foreach (var phone in phonesUpdated)

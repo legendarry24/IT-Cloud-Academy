@@ -1,0 +1,3 @@
+{"Id":1,"Manufacturer":"Apple","Model":"X","Price":1400.0}
+{"Id":2,"Manufacturer":"Meizu","Model":"M5","Price":1000.0}
+{"Id":0,"Manufacturer":"Samsung","Model":"S8","Price":1450.99}

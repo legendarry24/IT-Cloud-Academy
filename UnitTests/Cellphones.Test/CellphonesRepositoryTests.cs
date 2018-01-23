@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit;
 using NUnit.Framework;
-using Cellphones;
-using System.IO;
 
 namespace Cellphones.Test
 {
@@ -37,14 +31,14 @@ namespace Cellphones.Test
             var phone = new Cellphone
             {
                 Id = 0,
-                Manufacturer = "Apple",
-                Model = "X",
-                Price = 1500
+                Manufacturer = "Samsung",
+                Model = "S8",
+                Price = 1450.99m
             };
 
             //Act
             _cellphonesRepository.Add(phone);
-            var addedPhone = _cellphonesRepository.GetAll().FirstOrDefault();
+            var addedPhone = _cellphonesRepository.GetAll().LastOrDefault();
 
             //Assert
             Assert.NotNull(addedPhone);
@@ -67,19 +61,24 @@ namespace Cellphones.Test
         public void Remove_PhoneIsExists_PhoneRemoved()
         {
             //Arrange
-            int id = 1;
+            int id = 0;
 
             //Act
             _cellphonesRepository.Remove(id);
-            var unexistedPhone = _cellphonesRepository.GetAll().Where(x => x.Id == id);
+            var removedPhone = _cellphonesRepository.GetAll().FirstOrDefault(x => x.Id == id);
 
             //Assert
-            Assert.Null(unexistedPhone);
+            Assert.Null(removedPhone);
+        }
 
-            //Assert.Throws<ArgumentNullException>(() =>
-            //{
-            //    _cellphonesRepository.GetAll().Where(x => x.Id == id);
-            //});
+        [Test]
+        public void Remove_PhoneIsNotExists_ThrowArgumentException()
+        {
+            //Assert
+            Assert.Throws<ArgumentException>(() =>
+            {
+                _cellphonesRepository.Remove(100);
+            });
         }
     }
 }
