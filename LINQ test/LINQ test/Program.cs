@@ -214,15 +214,9 @@ namespace LINQ_test
                 .ToDictionary(authorBook => authorBook.AuthorName, 
                               authorBook => authorBook.AuthorsBooks);
 
-            foreach (var authorBook in authorsDictionary)
+            foreach (var authorBooks in authorsDictionary)
             {
-                Console.Write($"{authorBook.Key}: ");
-
-                foreach (string book in authorBook.Value)
-                {
-                    Console.Write($"{book}; ");
-                }
-                Console.WriteLine();
+                Console.WriteLine($"{authorBooks.Key}: {string.Join(", ", authorBooks.Value)}");
             }
 
             //12. Output all films of "Matt Damon" excluding films with actors 
