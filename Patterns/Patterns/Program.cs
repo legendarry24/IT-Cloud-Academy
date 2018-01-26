@@ -14,7 +14,7 @@ namespace Patterns
 			ResourceManager manager = new ResourceManager("manager");
 			try
 			{
-				//do smth
+				//do smth 
             }
 			finally
 			{
