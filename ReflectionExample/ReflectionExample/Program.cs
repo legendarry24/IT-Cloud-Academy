@@ -14,13 +14,10 @@ namespace ReflectionExample
                 Model = "S8"
             };
 
-            var hasAccess = PermissionsValidator.ValidateAccess("User", nameof(phone.ToString));
-            Console.WriteLine(hasAccess? "Access granted" : "Access denied");
-
             //var type = typeof(Phone);
 
-            //var assembly = Assembly.GetExecutingAssembly();
-            var assembly = Assembly.LoadFrom(@"O:\C-17-03\msr^_^\IT Cloud Academy\IT-Cloud-Academy2\ReflectionExample\ReflectionExample\bin\Debug\ReflectionExample.exe");
+            var assembly = Assembly.GetExecutingAssembly();
+            //var assembly = Assembly.LoadFrom(@"O:\C-17-03\msr^_^\IT Cloud Academy\IT-Cloud-Academy2\ReflectionExample\ReflectionExample\bin\Debug\ReflectionExample.exe");
             var type2 = assembly.DefinedTypes.FirstOrDefault(x => x.Name == "Phone");
 
             //var anotherPhone = Activator.CreateInstance(typeof(Phone), args: 1000) as Phone;
@@ -33,9 +30,9 @@ namespace ReflectionExample
             //    .FirstOrDefault(x => x.ReturnParameter.ParameterType == typeof(decimal));
 
             var method = type2
-                .GetMethods(BindingFlags.Public | BindingFlags.Instance)
+                .GetMethods(BindingFlags.NonPublic | BindingFlags.Instance)
                 .FirstOrDefault(x => x.ReturnParameter.ParameterType == typeof(decimal));
-
+             
             var field = type2
                 .GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
                 .FirstOrDefault(x => x.FieldType == typeof(decimal));
@@ -47,6 +44,9 @@ namespace ReflectionExample
             var price = method.Invoke(anotherPhone, new object[] { Currency.UAH });
 
             Console.WriteLine($"{anotherPhone} price: {price}");
+
+            var hasAccess = PermissionsValidator.ValidateAccess("User", nameof(phone.ToString));
+            Console.WriteLine(hasAccess ? "Access granted" : "Access denied");
 
             Console.ReadKey();
         }

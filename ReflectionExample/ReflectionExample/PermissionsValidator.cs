@@ -14,19 +14,31 @@ namespace ReflectionExample
             var type = typeof(Phone);
 
             var attributes = type.GetCustomAttributes(false);
-            //TODO
+
             foreach (PermissionsAttribute permission in attributes)
             {
                 if (permission.RoleName == userName)
                     return true;
             }
+            // can convert into LINQ expression
+            //if (attributes.Cast<PermissionsAttribute>().Any(permission => permission.RoleName == userName))
+            //{
+            //    return true;
+            //}
 
             if (!string.IsNullOrEmpty(methodName))
             {
-                var methods = type
+                var methodAttributes = type
                     .GetMethod(methodName)
-                    .GetCustomAttributes(false)
-                    .Any(x => (x as PermissionsAttribute)?.RoleName == userName);
+                    .GetCustomAttributes(false);
+
+                foreach (PermissionsAttribute permission in methodAttributes)
+                {
+                    if (permission.RoleName == userName)
+                        return true;
+                }
+                // can convert into LINQ expression
+                //return methodAttributes.Cast<PermissionsAttribute>().Any(permission => permission.RoleName == userName);
             }
 
             return false;

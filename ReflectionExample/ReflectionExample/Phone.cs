@@ -22,7 +22,7 @@
             return $"{Manufacturer} {Model}";
         }
 
-        public decimal ConvertCurrency(Currency currency)
+        private decimal ConvertCurrency(Currency currency)
         {
             switch (currency)
             {
