@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 
 namespace MultiThreading2
 {
     class Program
     {
-        static double[] result = new double[1000000];
-        static Thread[] arrayThread;
+        static double[] _result = new double[100];
+        static Thread[] _arrayThread;
+        static double _min;
 
         static void Main(string[] args)
         {
@@ -23,41 +25,60 @@ namespace MultiThreading2
 
             //t1.Join();
             //t2.Join();
-                        
-            arrayThread = new Thread[count];
 
-            for (int i = 0; i < arrayThread.Length; i++)
+            _arrayThread = new Thread[count];
+
+            for (int i = 0; i < _arrayThread.Length; i++)
             {
-                arrayThread[i] = new Thread(Fill);
-                arrayThread[i].Start(i);
-                arrayThread[i].Join();
+                _arrayThread[i] = new Thread(Fill);
+                _arrayThread[i].Start(i);
+                _arrayThread[i].Join();
             }
 
             st.Stop();
             Console.WriteLine(new string('+', 20));
             Console.WriteLine($"Elapsed time: {st.ElapsedMilliseconds} mc");
 
-            for (int i = 0; i < result.Length; i++)
+            for (int i = 0; i < _arrayThread.Length; i++)
             {
-                Console.WriteLine(result[i]);
+                _arrayThread[i] = new Thread(FindMin);
+                _arrayThread[i].Start();
+                _arrayThread[i].Join();
             }
+
+            Console.WriteLine($"Min element: {_min}");
+            Print();
         }
 
         static void Fill(object x)
         {
             int part = (int)x;
+
             // if length == 100
             // x = 0 => part = 0 or x = 1 => part = 50
             //int startIndex = (result.Length / 2) * part;
             //int endIndex = startIndex + result.Length / 2;
-            int startIndex = (result.Length / arrayThread.Length) * part;
-            int endIndex = (startIndex + result.Length) / arrayThread.Length;
+            int startIndex = (_result.Length / _arrayThread.Length) * part;
+            int endIndex = startIndex + _result.Length / _arrayThread.Length;
 
             Random rand = new Random();
-            for (int i = 0; i < result.Length; i++)
+            for (int i = startIndex; i < endIndex; i++)
             {
-                result[i] = rand.NextDouble();
+                _result[i] = rand.NextDouble();
             }
+        }
+
+        static void Print()
+        {
+            for (int i = 0; i < _result.Length; i++)
+            {
+                Console.WriteLine(_result[i]);
+            }
+        }
+
+        static void FindMin()
+        {
+            _min = _result.Min(x => x);            
         }
     }
 }

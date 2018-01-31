@@ -25,7 +25,9 @@ namespace MultiThreading
             t2.Start(50);
             t2.Join();
 
-
+            Console.WriteLine($"Thread context: {Thread.CurrentContext}\nCurrent domain: {Thread.GetDomain()}" +
+                              $"Base directory: {Thread.GetDomain().BaseDirectory}");
+            
             Console.WriteLine("============FINISH!!!=============");
         }
 
