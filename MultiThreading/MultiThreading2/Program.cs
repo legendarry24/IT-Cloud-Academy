@@ -65,6 +65,7 @@ namespace MultiThreading2
             for (int i = startIndex; i < endIndex; i++)
             {
                 _result[i] = rand.NextDouble();
+                Thread.Sleep(100);
             }
         }
 
@@ -78,7 +79,7 @@ namespace MultiThreading2
 
         static void FindMin()
         {
-            _min = _result.Min(x => x);            
+            _min = _result.Min();
         }
     }
 }
