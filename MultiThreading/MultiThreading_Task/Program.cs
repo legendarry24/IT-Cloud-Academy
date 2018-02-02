@@ -23,18 +23,20 @@ namespace MultiThreading_Task
             //Task[] array = new Task[100];
             //Task.WaitAll(array);
 
-            var parent = Task.Factory.StartNew(() => { 
+            Task parent = Task.Factory.StartNew(() => 
+            { 
                 Console.WriteLine("Parent task starting...");
 
-                var inner = Task.Factory.StartNew(() => { 
+                var inner = Task.Factory.StartNew(() => 
+                { 
                     Console.WriteLine("Inner task starting...");
                     Task.Delay(100);
-                    Console.WriteLine("Inner task endded...");
+                    Console.WriteLine("Inner task finished...");
                 }, TaskCreationOptions.AttachedToParent);
-
-                parent.Wait();
-                Console.WriteLine("Parent task endded...");
+                               
+                Console.WriteLine("Parent task finished...");
             });
+            parent.Wait();
 
             Task<int> genericTask = new Task<int>(() => Test(5));
             genericTask.Start();

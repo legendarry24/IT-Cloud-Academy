@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiThreading_Mutex", "Mul
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiThreading_Task", "MultiThreading_Task\MultiThreading_Task.csproj", "{DA945A35-71D1-424B-B7B3-316EAA6C8AE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiThreading_Task2", "MultiThreading_Task2\MultiThreading_Task2.csproj", "{BC7E6829-456E-4B7B-8B0D-2DB7AA6B1924}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiThreadins_AsyncAwait", "MultiThreadins_AsyncAwait\MultiThreadins_AsyncAwait.csproj", "{46F29FC3-4263-45AE-B138-AE83C8D0FCA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{DA945A35-71D1-424B-B7B3-316EAA6C8AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA945A35-71D1-424B-B7B3-316EAA6C8AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA945A35-71D1-424B-B7B3-316EAA6C8AE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC7E6829-456E-4B7B-8B0D-2DB7AA6B1924}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC7E6829-456E-4B7B-8B0D-2DB7AA6B1924}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC7E6829-456E-4B7B-8B0D-2DB7AA6B1924}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC7E6829-456E-4B7B-8B0D-2DB7AA6B1924}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46F29FC3-4263-45AE-B138-AE83C8D0FCA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46F29FC3-4263-45AE-B138-AE83C8D0FCA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46F29FC3-4263-45AE-B138-AE83C8D0FCA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46F29FC3-4263-45AE-B138-AE83C8D0FCA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
