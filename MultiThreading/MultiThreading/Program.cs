@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace MultiThreading
 {
@@ -22,8 +18,8 @@ namespace MultiThreading
             t1.Priority = ThreadPriority.Lowest;
             t2.Priority = ThreadPriority.Highest;
             t1.Start(100);
-            t2.Start(50);
-            t2.Join();
+            t2.Start(100);
+            t1.Join();
 
             Console.WriteLine($"Thread context: {Thread.CurrentContext}\nCurrent domain: {Thread.GetDomain()}" +
                               $"Base directory: {Thread.GetDomain().BaseDirectory}");
@@ -43,7 +39,7 @@ namespace MultiThreading
 
         static void TestMethod1(object start)
         {
-            int x = (int)start;
+            int x = (int) start;
             for (int i = 0; i < x; i++)
             {
                 Console.Write(1);
@@ -53,7 +49,7 @@ namespace MultiThreading
 
         static void TestMethod2(object start)
         {
-            int x = (int)start;
+            int x = (int) start;
             for (int i = 0; i < x; i++)
             {
                 Console.Write(2);

@@ -10,6 +10,7 @@ namespace MultiThreading2
         static double[] _result = new double[100];
         static Thread[] _arrayThread;
         static double _min;
+        static double _max;
 
         static void Main(string[] args)
         {
@@ -47,25 +48,37 @@ namespace MultiThreading2
             }
 
             Console.WriteLine($"Min element: {_min}");
+
+            for (int i = 0; i < _arrayThread.Length; i++)
+            {
+                _arrayThread[i] = new Thread(FindMax);
+                _arrayThread[i].Start();
+                _arrayThread[i].Join();
+            }
+
+            Console.WriteLine($"Max element: {_max}");
+
             Print();
         }
 
         static void Fill(object x)
         {
-            int part = (int)x;
-
+            int part = (int) x;
             // if length == 100
             // x = 0 => part = 0 or x = 1 => part = 50
             //int startIndex = (result.Length / 2) * part;
             //int endIndex = startIndex + result.Length / 2;
-            int startIndex = (_result.Length / _arrayThread.Length) * part;
-            int endIndex = startIndex + _result.Length / _arrayThread.Length;
+            int startIndex = _result.Length / _arrayThread.Length * part;
+            //if the last thread then go to the end of an array
+            int endIndex = part == _arrayThread.Length - 1
+                ? _result.Length
+                : startIndex + _result.Length / _arrayThread.Length;
 
             Random rand = new Random();
             for (int i = startIndex; i < endIndex; i++)
             {
                 _result[i] = rand.NextDouble();
-                Thread.Sleep(100);
+                //Thread.Sleep(10);
             }
         }
 
@@ -80,6 +93,11 @@ namespace MultiThreading2
         static void FindMin()
         {
             _min = _result.Min();
+        }
+
+        static void FindMax()
+        {
+            _max = _result.Max();
         }
     }
 }

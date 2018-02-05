@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 
 namespace MultiThreading3
@@ -21,19 +19,20 @@ namespace MultiThreading3
                 array[i] = rand.Next(1, 10);
             }
 
+            int sumWithoutThreading = array.Sum();
+            Console.WriteLine(sumWithoutThreading);
+
             Thread t1 = new Thread(Sum);
             Thread t2 = new Thread(Sum);
 
             t1.Start(0);
             t2.Start(1);
-
+            
             t1.Join();
             t2.Join();
+            
             Console.WriteLine("After joins");
             Console.WriteLine(count);
-
-            int sumWithoutThreading = array.Sum();
-            Console.WriteLine(sumWithoutThreading);
         }
 
         static void Sum(object partObj)

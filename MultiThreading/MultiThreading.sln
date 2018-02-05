@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiThreading", "MultiThreading\MultiThreading.csproj", "{1C328043-354C-496D-8D14-9C5BEF1B7045}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiThreading_Task2", "MultiThreading_Task2\MultiThreading_Task2.csproj", "{BC7E6829-456E-4B7B-8B0D-2DB7AA6B1924}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiThreadins_AsyncAwait", "MultiThreadins_AsyncAwait\MultiThreadins_AsyncAwait.csproj", "{46F29FC3-4263-45AE-B138-AE83C8D0FCA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiThreading_Semaphore", "MultiThreading_Semaphore\MultiThreading_Semaphore.csproj", "{2138F914-B542-44FF-864E-A8BF8F59A870}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{46F29FC3-4263-45AE-B138-AE83C8D0FCA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46F29FC3-4263-45AE-B138-AE83C8D0FCA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46F29FC3-4263-45AE-B138-AE83C8D0FCA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2138F914-B542-44FF-864E-A8BF8F59A870}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2138F914-B542-44FF-864E-A8BF8F59A870}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2138F914-B542-44FF-864E-A8BF8F59A870}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2138F914-B542-44FF-864E-A8BF8F59A870}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
