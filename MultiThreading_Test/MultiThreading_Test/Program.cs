@@ -21,7 +21,14 @@ namespace MultiThreading_Test
             }
             int choice = int.Parse(Console.ReadLine());
             MethodCall(choice);
-
+            //if (Console.ReadKey().Key == ConsoleKey.S)
+            //{
+            //    Console.WriteLine("Stop!");
+            //    for (int i = 0; i < _arrayThread.Length; i++)
+            //    {
+            //        _arrayThread[i].Abort();
+            //    }
+            //}
             Console.ReadKey();
         }
 

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace MultiThreading_Mutex
 {
@@ -11,11 +7,11 @@ namespace MultiThreading_Mutex
     {
         static void Main(string[] args)
         {
-            bool isCreated = false;
+            bool isNotRunning;
 
-            Mutex m = new Mutex(true, "test1", out isCreated);
+            Mutex m = new Mutex(true, "MyMutex", out isNotRunning);
 
-            if (isCreated)
+            if (isNotRunning)
             {
                 Console.WriteLine("Start!");
             }
@@ -26,15 +22,16 @@ namespace MultiThreading_Mutex
                 return;
             }
 
-            TimerCallback callback = new TimerCallback(Test);
+            TimerCallback callback = Test;
             Timer t = new Timer(callback, null, 0, 1000);
 
+            //timer will be working until key is pressed
             Console.ReadKey();
         }
 
         static void Test(object obj)
         {
-            Console.WriteLine("Do smth");
+            Console.WriteLine("Do it...");
         }
     }
 }
