@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiThreading_Test", "MultiThreading_Test\MultiThreading_Test.csproj", "{BBE6DB0D-64A3-4EFE-9414-7F7480A6A051}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Garden", "Garden\Garden.csproj", "{B7CCAA4D-9FD3-4FBB-9F89-477A54DCB376}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BBE6DB0D-64A3-4EFE-9414-7F7480A6A051}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBE6DB0D-64A3-4EFE-9414-7F7480A6A051}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBE6DB0D-64A3-4EFE-9414-7F7480A6A051}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7CCAA4D-9FD3-4FBB-9F89-477A54DCB376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7CCAA4D-9FD3-4FBB-9F89-477A54DCB376}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7CCAA4D-9FD3-4FBB-9F89-477A54DCB376}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7CCAA4D-9FD3-4FBB-9F89-477A54DCB376}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
