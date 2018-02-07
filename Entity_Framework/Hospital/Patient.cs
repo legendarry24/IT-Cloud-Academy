@@ -12,7 +12,6 @@ namespace Hospital
 		[StringLength(35)]
 		public string Name { get; set; }
 
-		[Required]
 		public int? Age { get; set; }
 	}
 }
