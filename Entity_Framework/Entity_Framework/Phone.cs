@@ -9,5 +9,6 @@
 
 	    public int? DepartmentId { get; set; }
 	    public Department Department { get; set; }
+		public PhoneConfig Config { get; set; }
 	}
 }

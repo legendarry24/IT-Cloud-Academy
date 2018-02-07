@@ -7,6 +7,6 @@ namespace Entity_Framework
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public ICollection<Phone> Things { get; set; }
+        public virtual ICollection<Phone> Things { get; set; }
     }
 }
