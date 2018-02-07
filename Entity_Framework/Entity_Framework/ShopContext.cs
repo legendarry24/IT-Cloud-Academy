@@ -11,5 +11,6 @@ namespace Entity_Framework
 
 		public DbSet<Phone> Phones { get; set; }
 		public DbSet<Laptop> Laptops { get; set; }
+	    public DbSet<Department> Departments { get; set; }
 	}
 }

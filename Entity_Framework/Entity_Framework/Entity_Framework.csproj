@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Department.cs" />
     <Compile Include="Laptop.cs" />
     <Compile Include="Phone.cs" />
     <Compile Include="Program.cs" />

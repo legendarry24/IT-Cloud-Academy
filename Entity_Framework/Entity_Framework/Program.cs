@@ -60,6 +60,28 @@ namespace Entity_Framework
                 }
             }
 
+		    using (var context = new ShopContext())
+		    {
+		        var department = new Department
+		        {
+		            Name = "Smartphones"
+		        };
+
+		        context.Departments.Add(department);
+
+		        var phone = new Phone
+		        {
+		            Manufacturer = "Samsung",
+		            Model = "S8",
+		            Price = 899,
+                    DepartmentId = 1
+		        };
+
+		        context.Phones.Add(phone);
+
+		        context.SaveChanges();
+		    }
+
         }
 	}
 }
