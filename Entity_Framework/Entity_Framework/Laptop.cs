@@ -10,6 +10,7 @@ namespace Entity_Framework
 		public Guid Id { get; set; }
 		public string Manufacturer { get; set; }
 
-		public ICollection<Person> Users { get; set; }
+        //many-to-many relationship 
+        public ICollection<Person> Users { get; set; }
 	}
 }

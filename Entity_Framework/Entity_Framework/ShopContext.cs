@@ -13,7 +13,7 @@ namespace Entity_Framework
 
 	public class ShopContext : DbContext
 	{
-		private const string ConnectionString = "ShopConnectionString2";
+		private const string ConnectionString = "ShopConnectionString";
 
 		//static ShopContext()
 		//{
