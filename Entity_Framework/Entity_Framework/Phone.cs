@@ -7,8 +7,11 @@
         public string Model { get; set; }
 		public decimal Price { get; set; }
 
-	    public int? DepartmentId { get; set; }
-	    public Department Department { get; set; }
-		public PhoneConfig Config { get; set; }
+        //one-to-many relationship (the "many" side)
+        public int? DepartmentId { get; set; }
+	    public virtual Department Department { get; set; } // virtual for lazy loading
+
+	    //one-to-one relationship 
+        public PhoneConfig Config { get; set; }
 	}
 }

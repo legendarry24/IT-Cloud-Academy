@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Entity_Framework
 {
@@ -11,6 +7,7 @@ namespace Entity_Framework
 		public int Id { get; set; }
 		public string Name { get; set; }
 
-		public ICollection<Laptop> Laptops { get; set; }
+	    //many-to-many relationship 
+        public ICollection<Laptop> Laptops { get; set; }
 	}
 }

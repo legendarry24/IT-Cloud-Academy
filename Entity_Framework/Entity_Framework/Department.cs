@@ -7,6 +7,7 @@ namespace Entity_Framework
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<Phone> Things { get; set; }
+        //one-to-many relationship (the "one" side)
+        public virtual ICollection<Phone> Things { get; set; } // virtual for lazy loading
     }
 }
