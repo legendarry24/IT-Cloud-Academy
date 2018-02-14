@@ -409,6 +409,7 @@ p {
   font-size: 16.099999999999998px;
   font-weight: 200;
   line-height: 1.4;
+  color: forestgreen;
 }
 
 @media (min-width: 768px) {
@@ -4939,7 +4940,7 @@ a.list-group-item.active > .badge,
 
 .jumbotron h1 {
   line-height: 1;
-  color: inherit;
+  color: cornflowerblue;
 }
 
 .jumbotron p {
