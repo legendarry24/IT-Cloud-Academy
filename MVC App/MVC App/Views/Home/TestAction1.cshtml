@@ -1,0 +1,34 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TestAction</title>
+	<style>
+		div {
+			background-color: darkblue;
+			color: aqua;
+			border-style: solid;
+			border-width: thick;
+		}
+	</style>
+</head>
+<body>
+    <div style="border-color : burlywood">
+		TestAction1. DataTime now is - @DateTime.Now
+		<br />
+		Hello @ViewBag.Name
+		<br />
+		Hi @TempData["Name"]
+		@for (int i = 0; i < 10; i++)
+		{
+			<br />
+			<span>@i</span>
+		}
+    </div>
+</body>
+</html>
