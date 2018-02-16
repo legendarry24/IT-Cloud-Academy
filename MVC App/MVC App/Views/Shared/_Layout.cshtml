@@ -32,9 +32,17 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+
+		@if (IsSectionDefined("layout_footer"))
+		{
+			@RenderSection("layout_footer", false);
+		}
+		else
+		{
+			<footer>
+				<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+			</footer>
+		}        
     </div>
 
     @Scripts.Render("~/bundles/jquery")
