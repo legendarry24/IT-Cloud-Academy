@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model IEnumerable<ElectronicShop.Models.Phone>
+
+<div class="row">
+    <div>
+        <h3>Phones sale</h3>
+        <table class="table table-striped">
+            <tr class="glyphicon-header">
+                <th>Id</th>
+                <th>Model</th>
+                <th>Manufacturer</th>
+                <th>Price</th>
+            </tr>
+            @foreach (var phone in Model)
+            {
+                <tr class="glyphicon-header">
+                    <th>@phone.Id</th>
+                    <td>@phone.Model</td>
+                    <td>@phone.Manufacturer</td>
+                    <td>@phone.Price</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
