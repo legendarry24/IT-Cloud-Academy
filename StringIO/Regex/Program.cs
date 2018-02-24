@@ -69,11 +69,11 @@ namespace RegExp
             //ValidPhoneNumber(phoneNumber4);
             //ValidPhoneNumber(phoneNumber5);
 
-            ////while (true)
-            ////{
-            ////    Console.Write("Input phone number: ");
-            ////    ValidPhoneNumber(Console.ReadLine());
-            ////}
+            //while (true)
+            //{
+            //    Console.Write("Input phone number: ");
+            //    ValidPhoneNumber(Console.ReadLine());
+            //}
             
             //Console.WriteLine(Email("www.aa_bb.a@gmail.com.ua"));
             //Console.WriteLine(Email("www_a-a.a@gmail.com"));
@@ -82,7 +82,13 @@ namespace RegExp
 
             Console.WriteLine(RemoveSpecialCharacters("zxcv****bawp"));
 
-            Console.ReadKey();
+            //replace symbols that don't match the pattern
+            string input = "12xy34";
+            string pattern = "[^xy]";
+            Regex regex = new Regex(pattern);
+            input = regex.Replace(input, "+");
+
+            Console.WriteLine(input);
         }
     }
 }
