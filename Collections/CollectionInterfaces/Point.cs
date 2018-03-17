@@ -9,40 +9,64 @@ namespace CollectionInterfaces
     class Point : IComparable
     {
         int _x;
-        int _y;
+        int _y;       
 
         public Point(int x)
         {
-            _x = x;
+            X = x;
         }
 
+        public int X
+        {
+            get
+            {
+                return _x;
+            }
+
+            set
+            {
+                _x = value;
+            }
+        }
+
+        /// <summary>
+        /// implementation of the interface IComparable&lt;Point&gt;
+        /// </summary>
+        //public int CompareTo(Point other)
+        //{
+        //    return _x.CompareTo(other._x);
+        //}
+
+        /// <summary>
+        /// implementation of the interface IComparable
+        /// </summary>
         public int CompareTo(object obj)
         {
             Point p = obj as Point;
             if (p != null)
             {
-                if (p._x == _x)
+                if (p.X == X)
                     return 0;
-                else if (p._x > _x)
+                if (p.X > X)
                     return -1;
                 else
                     return 1;
-            } 
+            }            
             else
             {
                 throw new ArgumentException("obj is not a Point");
             }
         }
 
-        public override int GetHashCode()
+        public override bool Equals(object obj)
         {
-            return _x.GetHashCode();  
+            Point p = obj as Point;
+            return X.Equals(p.X);
         }
 
-        //public override bool Equals(object obj)
-        //{
-        //    Point p = obj as Point;
-
-        //}
+        public override int GetHashCode()
+        {
+            return X.GetHashCode();
+        }
     }
 }

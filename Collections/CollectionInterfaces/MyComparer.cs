@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace CollectionInterfaces
 {
-    class MyComparer<T> : IComparer<T>
+    class MyComparer<T> : IComparer<Point>
     {
-        public int Compare(T x, T y)
+        public int Compare(Point x, Point y)
         {
-            Point a = x as Point;
-            Point b = y as Point;
-            return 0;
+            return x.X.CompareTo(y.X);
         }
     }
 }

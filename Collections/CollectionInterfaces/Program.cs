@@ -11,19 +11,34 @@ namespace CollectionInterfaces
     {
         static void Main(string[] args)
         {
-            //var p = new Point(1);
-            //var p2 = new Point(2);
-            //var p3 = new Point(3);
+            var p = new Point(1);
+            var p2 = new Point(2);
+            var p3 = new Point(3);
 
-            //SortedList list = new SortedList();
-            //list.Add(p2, "2");
-            //list.Add(p, "1");
-            //list.Add(p3, "3");
-            ////Console.WriteLine(list.Count); 
+            SortedList list = new SortedList
+            {
+                {p2, "2"},
+                {p, "1"},
+                {p3, "3"}
+                //will cause ArgumentException
+                //{new object(), 1 }
+            };
+            foreach (DictionaryEntry item in list)
+            {
+                Console.WriteLine(item.Value);
+            }
 
-            //List<Point> lst = new List<Point>();
-            //MyComparer<Point> comparerObj = new MyComparer<Point>();
-            //lst.Sort(comparerObj);
+            Dictionary<Point, int> dictionary = new Dictionary<Point, int>
+            {
+                {new Point(1), 1},
+                {new Point(2), 2}
+                //will cause ArgumentException
+                //{new Point(1), 3}
+            };
+
+            List<Point> lst = new List<Point>();
+            MyComparer<Point> comparerObj = new MyComparer<Point>();
+            lst.Sort(comparerObj);
 
             //MyList myList = new MyList(new string[] { "1", "3", "4", "5", "-1", "1", "4" });
             //foreach (var item in myList)
@@ -43,11 +58,11 @@ namespace CollectionInterfaces
             //}
 
 
-            SecondList sList = new SecondList(new string[] { "1", "3", "4", "5", "-1", "1", "4" });
-            foreach (var item in sList)
-            {
+            //SecondList sList = new SecondList(new string[] { "1", "3", "4", "5", "-1", "1", "4" });
+            //foreach (var item in sList)
+            //{
 
-            }
+            //}
 
             Console.ReadKey();
         }
