@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace CollectionInterfaces
 {
-    class AnotherList: IEnumerable, IEnumerator
+    //does not work correctly with multiple foreach loops
+    class AnotherList : IEnumerable, IEnumerator
     {
         private string[] _array;
         private int _index = -1;

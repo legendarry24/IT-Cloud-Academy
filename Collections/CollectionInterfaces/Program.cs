@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CollectionInterfaces
 {
@@ -40,23 +37,22 @@ namespace CollectionInterfaces
             MyComparer<Point> comparerObj = new MyComparer<Point>();
             lst.Sort(comparerObj);
 
-            //MyList myList = new MyList(new string[] { "1", "3", "4", "5", "-1", "1", "4" });
-            //foreach (var item in myList)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            MyList myList = new MyList(new string[] { "2", "3", "4", "5", "-1", "1", "4" });
+            foreach (var item in myList)
+            {
+                Console.WriteLine(item);
+            }
 
-            //AnotherList aList = new AnotherList(new string[] { "1", "3", "4", "5", "-1", "1", "4" });
-            //foreach (var item in aList)
-            //{
-            //    Console.WriteLine(item);
-            //}
-            //// second and other loops won't work
-            //foreach (var item in aList)
-            //{
-            //    Console.WriteLine(item);
-            //}
-
+            AnotherList aList = new AnotherList(new string[] { "1", "3", "4", "5", "-1", "1", "4" });
+            foreach (var item in aList)
+            {
+                Console.WriteLine(item);
+            }
+            // second and other loops won't work
+            foreach (var item in aList)
+            {
+                Console.WriteLine(item);
+            }
 
             //SecondList sList = new SecondList(new string[] { "1", "3", "4", "5", "-1", "1", "4" });
             //foreach (var item in sList)
