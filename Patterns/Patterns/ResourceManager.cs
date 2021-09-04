@@ -25,6 +25,7 @@ namespace Patterns
 		}
 
 		// derived classes can override this method to implement their own clean up logic
+		// if this class is not supposed to be inherited then this method should not be virtual (make it private void Dispose(bool disposing))
 		protected virtual void Dispose(bool disposing)
 		{
 			if (this.disposed)
