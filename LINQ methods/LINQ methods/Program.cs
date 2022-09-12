@@ -118,15 +118,15 @@ namespace LINQ_methods
         }
         
         public static IEnumerable<T> Where<T>(IEnumerable<T> collection, Func<T, bool> predicate)
+	{
+		foreach (T item in collection)
 		{
-			foreach (T item in collection)
+			if (predicate(item))
 			{
-				if (predicate(item))
-				{
-					yield return item;
-				}
+				yield return item;
 			}
 		}
+	}
 
         static void Main(string[] args)
         {
