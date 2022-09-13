@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LINQ_methods
 {
@@ -117,6 +115,14 @@ namespace LINQ_methods
             };
         }
 
+        // a function that gets a string of words and returns a string where order of words is reversed
+        public static string WordReverse(string input, char separator)
+        {
+            var reversedWords = input.Split(separator).Reverse();
+
+            return string.Join(separator, reversedWords);
+        }
+
         static void Main(string[] args)
         {
             LinqSelectMany.SelectManyEx();
@@ -128,6 +134,9 @@ namespace LINQ_methods
 
             string name = "Petro";
             Console.WriteLine(name.IsLengthEven());
+
+            string input = "cat dog fish bird lion";
+            Console.WriteLine(WordReverse(input, ' '));
 
             Console.ReadKey();
         }
